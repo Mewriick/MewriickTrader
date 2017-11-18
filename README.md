@@ -1,3 +1,2 @@
 # MewriickTrader
-Hobby proejct
-Automated Forex trader
+Hobby project for automated Forex trading
