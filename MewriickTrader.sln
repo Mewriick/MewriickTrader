@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MewriickTrader.Core", "src\MewriickTrader.Core\MewriickTrader.Core.csproj", "{45009F32-4300-41EF-B0D0-5470A2B3A1DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MewriickTrader.CandlestickPatterns", "MewriickTrader.CandlestickPatterns\MewriickTrader.CandlestickPatterns.csproj", "{DA7C7742-D377-400B-AEDB-78A251244388}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MewriickTrader.CandlestickPatterns", "src\MewriickTrader.CandlestickPatterns\MewriickTrader.CandlestickPatterns.csproj", "{DA7C7742-D377-400B-AEDB-78A251244388}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
