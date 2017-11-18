@@ -1,0 +1,2 @@
+# MewriickTrader
+Automated Forex trader
