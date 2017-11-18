@@ -6,10 +6,13 @@
 
   <ItemGroup>
     <Folder Include="CandlesSequencePatterns\" />
-    <Folder Include="SingleCandlePatterns\Bullish\" />
     <Folder Include="SingleCandlePatterns\Bearish\" />
     <Folder Include="TwoCandlePatterns\Bullish\" />
     <Folder Include="TwoCandlePatterns\Bearish\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MewriickTrader.Core\MewriickTrader.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,5 +9,7 @@
         decimal High { get; }
 
         decimal Low { get; }
+
+        CandleType Type { get; }
     }
 }
