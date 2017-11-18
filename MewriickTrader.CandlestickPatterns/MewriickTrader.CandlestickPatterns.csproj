@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="CandlesSequencePatterns\" />
+    <Folder Include="SingleCandlePatterns\Bullish\" />
+    <Folder Include="SingleCandlePatterns\Bearish\" />
+    <Folder Include="TwoCandlePatterns\Bullish\" />
+    <Folder Include="TwoCandlePatterns\Bearish\" />
+  </ItemGroup>
+
+</Project>
