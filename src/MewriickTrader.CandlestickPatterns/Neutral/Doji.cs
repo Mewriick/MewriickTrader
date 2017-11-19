@@ -1,9 +1,9 @@
 ﻿using MewriickTrader.Core.Analysis;
 using MewriickTrader.Core.Candle;
 
-namespace MewriickTrader.CandlestickPatterns.SingleCandlePatterns.Neutral
+namespace MewriickTrader.CandlestickPatterns.Neutral
 {
-    public class Doji : SingleCandlePatternBase
+    public class Doji : ICandlePatternable
     {
         private decimal treshold;
 
@@ -12,8 +12,10 @@ namespace MewriickTrader.CandlestickPatterns.SingleCandlePatterns.Neutral
             this.treshold = treshold;
         }
 
-        public override CandlePatternMatch Match(ICandle candle)
+        public CandlePatternMatch Match(IAnalyzableContext analyzableContext)
         {
+            var candle = analyzableContext.Candles[analyzableContext.CandleIndexToAnalyze];
+
             if (candle.Open == candle.Close)
             {
                 return new CandlePatternMatch(true);

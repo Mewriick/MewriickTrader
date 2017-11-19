@@ -2,7 +2,8 @@
 {
     public enum CandleType
     {
-        Bull = 0,
-        Bear = 1,
+        Neutral = 0,
+        Bullish = 1,
+        Bearish = 2,
     }
 }

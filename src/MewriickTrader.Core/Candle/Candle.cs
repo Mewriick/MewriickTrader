@@ -18,10 +18,13 @@ namespace MewriickTrader.Core.Candle
         {
             get
             {
-                if (Open < Close)
-                    return CandleType.Bull;
+                if (Open == Close)
+                    return CandleType.Neutral;
 
-                return CandleType.Bear;
+                if (Open < Close)
+                    return CandleType.Bullish;
+
+                return CandleType.Bearish;
             }
         }
 
