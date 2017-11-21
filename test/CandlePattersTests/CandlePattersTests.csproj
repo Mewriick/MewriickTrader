@@ -17,4 +17,10 @@
     <ProjectReference Include="..\..\src\MewriickTrader.Core\MewriickTrader.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="xunit.runner.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

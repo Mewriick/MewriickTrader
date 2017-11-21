@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{247DE096-194
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{38A27D6A-C339-44F6-AD88-6BD149F3C630}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandlePattersTests", "test\CandlePattersTests\CandlePattersTests.csproj", "{51DCFAB5-4F6C-4A63-B81C-7414B13B07B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CandlePattersTests", "test\CandlePattersTests\CandlePattersTests.csproj", "{51DCFAB5-4F6C-4A63-B81C-7414B13B07B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

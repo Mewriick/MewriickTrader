@@ -1,7 +1,6 @@
 ﻿using MewriickTrader.CandlestickPatterns.Neutral;
 using MewriickTrader.Core.Analysis;
 using MewriickTrader.Core.Candle;
-using System;
 
 namespace MewriickTrader.CandlestickPatterns.Bullish
 {
@@ -22,7 +21,7 @@ namespace MewriickTrader.CandlestickPatterns.Bullish
 
         public CandlePatternMatch Match(IAnalyzableContext analyzableContext)
         {
-            var candle = analyzableContext.Candles[analyzableContext.CandleIndexToAnalyze];
+            var candle = analyzableContext.CandleAtIndex;
 
             var isDoji = dojiPattern.Match(analyzableContext);
             var sizeHighToLow = candle.SizeFromHighToLow();
@@ -33,8 +32,6 @@ namespace MewriickTrader.CandlestickPatterns.Bullish
                                   candle.Open - candle.Low > ShadowTreshold * sizeHighToLow;
 
             return new CandlePatternMatch(isDragonFlyDoji);
-
-            throw new NotImplementedException();
         }
     }
 }

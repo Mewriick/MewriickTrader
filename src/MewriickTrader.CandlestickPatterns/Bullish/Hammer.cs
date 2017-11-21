@@ -17,7 +17,7 @@ namespace MewriickTrader.CandlestickPatterns.Bullish
         {
             var candle = analyzableContext.Candles[analyzableContext.CandleIndexToAnalyze];
 
-            if (candle.Type == CandleType.Bearish || candle.Open == candle.Close)
+            if (candle.IsBearish() || candle.Open == candle.Close)
             {
                 return CandlePatternMatch.NoMatch;
             }

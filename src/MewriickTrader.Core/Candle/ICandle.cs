@@ -10,6 +10,6 @@
 
         decimal Low { get; }
 
-        CandleType Type { get; }
+        CandleBodyType BodyType { get; }
     }
 }

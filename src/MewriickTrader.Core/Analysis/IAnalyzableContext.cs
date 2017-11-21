@@ -8,5 +8,7 @@ namespace MewriickTrader.Core.Analysis
         IReadOnlyList<ICandle> Candles { get; }
 
         int CandleIndexToAnalyze { get; }
+
+        ICandle CandleAtIndex { get; }
     }
 }

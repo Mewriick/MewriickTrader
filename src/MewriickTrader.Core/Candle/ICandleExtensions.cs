@@ -32,5 +32,15 @@ namespace MewriickTrader.Core.Candle
         {
             return (candle.Open + candle.Close) / 2;
         }
+
+        public static bool IsBullish(this ICandle candle)
+        {
+            return candle.BodyType == CandleBodyType.Bullish;
+        }
+
+        public static bool IsBearish(this ICandle candle)
+        {
+            return candle.BodyType == CandleBodyType.Bearish;
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MewriickTrader.Core.Candle
 {
-    public enum CandleType
+    public enum CandleBodyType
     {
         Neutral = 0,
         Bullish = 1,

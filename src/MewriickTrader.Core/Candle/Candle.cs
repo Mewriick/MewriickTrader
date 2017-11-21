@@ -14,17 +14,17 @@ namespace MewriickTrader.Core.Candle
 
         public DateTimeOffset DateTime { get; }
 
-        public CandleType Type
+        public CandleBodyType BodyType
         {
             get
             {
                 if (Open == Close)
-                    return CandleType.Neutral;
+                    return CandleBodyType.Neutral;
 
                 if (Open < Close)
-                    return CandleType.Bullish;
+                    return CandleBodyType.Bullish;
 
-                return CandleType.Bearish;
+                return CandleBodyType.Bearish;
             }
         }
 
@@ -39,7 +39,7 @@ namespace MewriickTrader.Core.Candle
 
         public override string ToString()
         {
-            return $"O: {Open}, H: {High}, L: {Low}, C: {Close}";
+            return $"O: {Open}, H: {High}, L: {Low}, C: {Close} Body: {BodyType}";
         }
     }
 }

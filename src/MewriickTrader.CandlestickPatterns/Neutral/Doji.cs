@@ -14,7 +14,7 @@ namespace MewriickTrader.CandlestickPatterns.Neutral
 
         public CandlePatternMatch Match(IAnalyzableContext analyzableContext)
         {
-            var candle = analyzableContext.Candles[analyzableContext.CandleIndexToAnalyze];
+            var candle = analyzableContext.CandleAtIndex;
 
             if (candle.Open == candle.Close)
             {
