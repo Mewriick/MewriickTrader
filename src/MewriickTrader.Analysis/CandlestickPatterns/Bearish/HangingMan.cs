@@ -1,22 +1,22 @@
-﻿using MewriickTrader.Analysis.CandlestickPatterns.Bearish;
+﻿using MewriickTrader.Analysis.CandlestickPatterns.Bullish;
 using MewriickTrader.Core.Analysis;
 using MewriickTrader.Core.Candle;
 
-namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
+namespace MewriickTrader.Analysis.CandlestickPatterns.Bearish
 {
-    public class Hammer : ICandlePatternable
+    public class HangingMan : ICandlePatternable
     {
         private const int RealBodyMultiplier = 3;
         private const decimal Treshold = 0.001m;
 
-        private DownTrend downTrendPattern;
+        private UpTrend upTrendPatter;
 
         public decimal LowerWickLengthRatio { get; }
 
 
-        public Hammer(DownTrend downTrendPattern, decimal lowerWickLengthRatio = 0.6m)
+        public HangingMan(UpTrend upTrendPatter, decimal lowerWickLengthRatio = 0.6m)
         {
-            this.downTrendPattern = downTrendPattern;
+            this.upTrendPatter = upTrendPatter;
             LowerWickLengthRatio = lowerWickLengthRatio;
         }
 
@@ -29,9 +29,9 @@ namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
             }
 
             var upTrendContext = new CandlestickContext(analyzableContext.Candles, analyzableContext.CandleIndexToAnalyze - 1);
-            var isDownTrendMatch = downTrendPattern.Match(upTrendContext);
+            var isUptrendMatch = upTrendPatter.Match(upTrendContext);
 
-            if (!isDownTrendMatch.Success)
+            if (!isUptrendMatch.Success)
             {
                 return CandlePatternMatch.NoMatch;
             }

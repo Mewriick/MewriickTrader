@@ -74,6 +74,63 @@ namespace CandlePattersTests.Mocks
             return this;
         }
 
+        public TestCandlesContext WithHammers()
+        {
+            var hammerCandles = new List<ICandle>()
+            {
+              { new Candle(1.17954m, 1.17956m, 1.17947m, 1.17948m, DateTime.Now) },
+              { new Candle(1.17950m, 1.17953m, 1.17946m, 1.17947m, DateTime.Now) },
+              { new Candle(1.17946m, 1.17947m, 1.17941m, 1.17942m, DateTime.Now) },
+              { new Candle(1.17943m, 1.17944m, 1.17826m, 1.17927m, DateTime.Now) },
+              { new Candle(1.17913m, 1.17915m, 1.17901m, 1.17915m, DateTime.Now) }, // Hammer
+              { new Candle(1.17954m, 1.17956m, 1.17947m, 1.17948m, DateTime.Now) },
+              { new Candle(1.17950m, 1.17953m, 1.17946m, 1.17947m, DateTime.Now) },
+              { new Candle(1.17946m, 1.17947m, 1.17941m, 1.17942m, DateTime.Now) },
+              { new Candle(1.17943m, 1.17944m, 1.17826m, 1.17927m, DateTime.Now) },
+              { new Candle(1.17943m, 1.17946m, 1.17934m, 1.17946m, DateTime.Now) }, // Hammer
+            };
+
+            candles.AddRange(hammerCandles);
+
+            return this;
+        }
+
+        public TestCandlesContext WithBullishDragonFlyDoji()
+        {
+            var dojiCandle = new List<ICandle>()
+            {
+                { new Candle(1.17972m, 1.17973m, 1.17964m, 1.17972m, DateTime.Now) },
+            };
+
+            candles.AddRange(dojiCandle);
+
+            return this;
+        }
+
+        public TestCandlesContext WithBigBullishCandle()
+        {
+            var bigCandle = new List<ICandle>()
+            {
+                { new Candle(1.17191m, 1.17246m, 1.17189m, 1.17242m, DateTime.Now) },
+            };
+
+            candles.AddRange(bigCandle);
+
+            return this;
+        }
+
+        public TestCandlesContext WithPinBar()
+        {
+            var pinBar = new List<ICandle>()
+            {
+                { new Candle(1.17913m, 1.17915m, 1.17901m, 1.17915m, DateTime.Now) },
+            };
+
+            candles.AddRange(pinBar);
+
+            return this;
+        }
+
         public TestCandlesContext WithCandleIndex(int candleIndex)
         {
             this.candleIndex = candleIndex;

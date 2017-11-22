@@ -1,6 +1,5 @@
 ﻿using MewriickTrader.Core.Analysis;
 using MewriickTrader.Core.Candle;
-using System;
 
 namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
 {
@@ -17,12 +16,14 @@ namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
         {
             if (Period > analyzableContext.Candles.Count)
             {
-                throw new ArgumentException($"Number of candels muset be greater than {nameof(Period)}");
+                return CandlePatternMatch.NoMatch;
+                //throw new ArgumentException($"Number of candels muset be greater than {nameof(Period)}");
             }
 
             if (analyzableContext.CandleIndexToAnalyze <= Period - 1)
             {
-                throw new ArgumentException($"{nameof(analyzableContext.CandleIndexToAnalyze)} cannot be less or equal than the {nameof(Period)}");
+                return CandlePatternMatch.NoMatch;
+                //throw new ArgumentException($"{nameof(analyzableContext.CandleIndexToAnalyze)} cannot be less or equal than the {nameof(Period)}");
             }
 
             if (analyzableContext.CandleAtIndex.IsBearish())
@@ -46,7 +47,7 @@ namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
                 }
             }
 
-            return CandlePatternMatch.Match;
+            return CandlePatternMatch.MatchWithoutConfirmationNeeded;
         }
     }
 }

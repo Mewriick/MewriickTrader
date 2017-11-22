@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MewriickTrader.Core.Candle
 {
-    public class Candle : ICandle
+    public class Candle : ValueObject, ICandle
     {
         public decimal Open { get; }
 
@@ -40,6 +41,16 @@ namespace MewriickTrader.Core.Candle
         public override string ToString()
         {
             return $"O: {Open}, H: {High}, L: {Low}, C: {Close} Body: {BodyType}";
+        }
+
+        protected override IEnumerable<object> GetAtomicValues()
+        {
+            yield return Open;
+            yield return High;
+            yield return Low;
+            yield return Close;
+            yield return BodyType;
+            yield return DateTime;
         }
     }
 }

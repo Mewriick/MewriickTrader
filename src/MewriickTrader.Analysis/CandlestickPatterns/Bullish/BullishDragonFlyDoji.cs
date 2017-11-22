@@ -31,7 +31,7 @@ namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
                                   candle.Close - candle.Low > ShadowTreshold * sizeHighToLow &&
                                   candle.Open - candle.Low > ShadowTreshold * sizeHighToLow;
 
-            return new CandlePatternMatch(isDragonFlyDoji);
+            return new CandlePatternMatch(isDragonFlyDoji, false);
         }
     }
 }

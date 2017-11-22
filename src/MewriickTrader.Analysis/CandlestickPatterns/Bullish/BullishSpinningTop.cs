@@ -27,7 +27,7 @@ namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
                                     (candle.High - candle.Open) / (Treshold + sizeFromHighToLow) < 0.4m &&
                                     (candle.Close - candle.Low) / (Treshold + sizeFromHighToLow) < 0.4m;
 
-            return new CandlePatternMatch(isSpinningTop);
+            return new CandlePatternMatch(isSpinningTop, false);
         }
     }
 }

@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{38A27D6A-C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CandlePattersTests", "test\CandlePattersTests\CandlePattersTests.csproj", "{51DCFAB5-4F6C-4A63-B81C-7414B13B07B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreTest", "test\CoreTest\CoreTest.csproj", "{E286C306-235A-4616-A090-C7410E346CF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{51DCFAB5-4F6C-4A63-B81C-7414B13B07B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51DCFAB5-4F6C-4A63-B81C-7414B13B07B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51DCFAB5-4F6C-4A63-B81C-7414B13B07B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E286C306-235A-4616-A090-C7410E346CF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E286C306-235A-4616-A090-C7410E346CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E286C306-235A-4616-A090-C7410E346CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E286C306-235A-4616-A090-C7410E346CF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{45009F32-4300-41EF-B0D0-5470A2B3A1DE} = {247DE096-194E-4C68-9C8A-FD82D9A44C9D}
 		{DA7C7742-D377-400B-AEDB-78A251244388} = {247DE096-194E-4C68-9C8A-FD82D9A44C9D}
 		{51DCFAB5-4F6C-4A63-B81C-7414B13B07B9} = {38A27D6A-C339-44F6-AD88-6BD149F3C630}
+		{E286C306-235A-4616-A090-C7410E346CF9} = {38A27D6A-C339-44F6-AD88-6BD149F3C630}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55A415D0-2F4E-4772-8393-35262483B62C}
