@@ -1,7 +1,7 @@
 ﻿using MewriickTrader.Core.Analysis;
 using MewriickTrader.Core.Candle;
 
-namespace MewriickTrader.CandlestickPatterns.Neutral
+namespace MewriickTrader.Analysis.CandlestickPatterns.Neutral
 {
     public class Doji : ICandlePatternable
     {

@@ -1,26 +1,23 @@
 ﻿using MewriickTrader.Core.Analysis;
 using MewriickTrader.Core.Candle;
 
-namespace MewriickTrader.CandlestickPatterns.SingleCandlePatterns.Bearish
+namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
 {
-    /// <summary>
-    /// Formula is taken from book Candlestick Patterns With Formula page 11
-    /// </summary>
-    public class BearishSpiningTop : ICandlePatternable
+    public class BullishSpinningTop : ICandlePatternable
     {
         private const int RealBodyMultiplier = 3;
 
         public decimal Treshold { get; }
 
-        public BearishSpiningTop(decimal treshold = 0.001m)
+        public BullishSpinningTop(decimal treshold = 0.001m)
         {
             Treshold = treshold;
         }
 
         public CandlePatternMatch Match(IAnalyzableContext analyzableContext)
         {
-            var candle = analyzableContext.CandleAtIndex;
-            if (candle.IsBullish())
+            var candle = analyzableContext.Candles[analyzableContext.CandleIndexToAnalyze];
+            if (candle.IsBearish())
             {
                 return CandlePatternMatch.NoMatch;
             }

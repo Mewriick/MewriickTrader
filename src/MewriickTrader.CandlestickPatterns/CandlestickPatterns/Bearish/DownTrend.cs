@@ -2,13 +2,13 @@
 using MewriickTrader.Core.Candle;
 using System;
 
-namespace MewriickTrader.CandlestickPatterns.Bullish
+namespace MewriickTrader.Analysis.CandlestickPatterns.Bearish
 {
-    public class UpTrend : ICandlePatternable
+    public class DownTrend : ICandlePatternable
     {
         public int Period { get; }
 
-        public UpTrend(int period = 3)
+        public DownTrend(int period = 3)
         {
             Period = period;
         }
@@ -25,7 +25,7 @@ namespace MewriickTrader.CandlestickPatterns.Bullish
                 throw new ArgumentException($"{nameof(analyzableContext.CandleIndexToAnalyze)} cannot be less or equal than the {nameof(Period)}");
             }
 
-            if (analyzableContext.CandleAtIndex.IsBearish())
+            if (analyzableContext.CandleAtIndex.IsBullish())
             {
                 return CandlePatternMatch.NoMatch;
             }
@@ -35,12 +35,12 @@ namespace MewriickTrader.CandlestickPatterns.Bullish
 
             for (int i = 0; i < Period; i++)
             {
-                if (candles[startIndex - i].High < candles[startIndex - i - 1].High)
+                if (candles[startIndex - i].High > candles[startIndex - i - 1].High)
                 {
                     return CandlePatternMatch.NoMatch;
                 }
 
-                if (candles[startIndex - i].Low < candles[startIndex - i - 1].Low)
+                if (candles[startIndex - i].Low > candles[startIndex - i - 1].Low)
                 {
                     return CandlePatternMatch.NoMatch;
                 }

@@ -1,8 +1,8 @@
-﻿using MewriickTrader.CandlestickPatterns.Neutral;
+﻿using MewriickTrader.Analysis.CandlestickPatterns.Neutral;
 using MewriickTrader.Core.Analysis;
 using MewriickTrader.Core.Candle;
 
-namespace MewriickTrader.CandlestickPatterns.Bullish
+namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
 {
     /// <summary>
     /// Formula is taken from book Candlestick Patterns With Formula page 10

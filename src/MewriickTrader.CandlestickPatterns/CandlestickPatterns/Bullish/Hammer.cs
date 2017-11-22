@@ -1,7 +1,7 @@
 ﻿using MewriickTrader.Core.Analysis;
 using MewriickTrader.Core.Candle;
 
-namespace MewriickTrader.CandlestickPatterns.Bullish
+namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
 {
     public class Hammer : ICandlePatternable
     {

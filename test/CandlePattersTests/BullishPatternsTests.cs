@@ -1,5 +1,5 @@
 using CandlePattersTests.Mocks;
-using MewriickTrader.CandlestickPatterns.Bullish;
+using MewriickTrader.Analysis.CandlestickPatterns.Bullish;
 using System;
 using Xunit;
 
