@@ -1,0 +1,25 @@
+﻿<Window x:Class="MewriickTrader.Client.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:local="clr-namespace:MewriickTrader.Client" 
+        xmlns:vm="clr-namespace:MewriickTrader.Client.ViewModels"  
+        mc:Ignorable="d"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="Automatic Forex Trader" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding Source={x:Static SystemParameters.FullPrimaryScreenWidth}}" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ContentControl Grid.Row="0" Grid.Column="0" prism:RegionManager.RegionName="{x:Static local:ApplicationRegions.MenuRegion}"/>
+        <ContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="{x:Static local:ApplicationRegions.ContentRegion}"/>
+        <!--<ContentControl Grid.Row="2" Grid.Column="0" prism:RegionManager.RegionName="{x:Static Regions.StatusBarRegion}"/>-->
+    </Grid>
+</Window>

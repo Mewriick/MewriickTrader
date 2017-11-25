@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MewriickTrader.Core\MewriickTrader.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MtApi">
+      <HintPath>..\..\lib\MtApi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

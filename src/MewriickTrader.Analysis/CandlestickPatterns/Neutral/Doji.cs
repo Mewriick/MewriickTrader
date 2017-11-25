@@ -18,12 +18,12 @@ namespace MewriickTrader.Analysis.CandlestickPatterns.Neutral
 
             if (candle.Open == candle.Close)
             {
-                return new CandlePatternMatch(true);
+                return new CandlePatternMatch(true, false);
             }
 
             var isDoji = candle.RealBody() < treshold * candle.SizeFromHighToLow();
 
-            return new CandlePatternMatch(isDoji);
+            return new CandlePatternMatch(isDoji, false);
         }
     }
 }
