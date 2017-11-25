@@ -26,7 +26,7 @@ namespace MewriickTrader.Client
             Container.RegisterTypeForNavigation<MainPage>(nameof(MainPage));
             Container.RegisterTypeForNavigation<AccountInfo>(nameof(AccountInfo));
 
-            Container.RegisterType<IMarketListener, ForexMarketListenerAdapter>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IChartListener, MetaTraderChartAdapter>(new ContainerControlledLifetimeManager());
         }
     }
 }
