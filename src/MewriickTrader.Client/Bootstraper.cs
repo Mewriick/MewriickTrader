@@ -1,7 +1,8 @@
 ﻿using MetaTrader.Connector;
 using MewriickTrader.Client.Views;
-using MewriickTrader.Core.Trading;
+using MewriickTrader.Core.Trading.Charts;
 using Microsoft.Practices.Unity;
+using MtApi;
 using Prism.Unity;
 using System.Windows;
 
@@ -25,8 +26,10 @@ namespace MewriickTrader.Client
 
             Container.RegisterTypeForNavigation<MainPage>(nameof(MainPage));
             Container.RegisterTypeForNavigation<AccountInfo>(nameof(AccountInfo));
+            Container.RegisterTypeForNavigation<StatusBar>(nameof(StatusBar));
 
-            Container.RegisterType<IChartListener, MetaTraderChartAdapter>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IMarketChart, MetaTraderChartAdapter>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<MtApiClient>(new ContainerControlledLifetimeManager());
         }
     }
 }

@@ -11,15 +11,15 @@
         Title="Automatic Forex Trader" Height="350" Width="525">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{Binding Source={x:Static SystemParameters.FullPrimaryScreenWidth}}" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="{Binding Source={x:Static SystemParameters.FullPrimaryScreenWidth}}" />            
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0" Grid.Column="0" prism:RegionManager.RegionName="{x:Static local:ApplicationRegions.MenuRegion}"/>
         <ContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="{x:Static local:ApplicationRegions.ContentRegion}"/>
-        <!--<ContentControl Grid.Row="2" Grid.Column="0" prism:RegionManager.RegionName="{x:Static Regions.StatusBarRegion}"/>-->
+        <ContentControl Grid.Row="2" Grid.Column="0" prism:RegionManager.RegionName="{x:Static local:ApplicationRegions.StatusBarRegion}"/>
     </Grid>
 </Window>

@@ -13,15 +13,21 @@
 
     <Grid Margin="0,10,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <TextBlock Width="117"
-                   Height="17"
-                   Margin="10,5,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Text="Port"
-                   TextWrapping="Wrap" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Margin="10,5,0,0"
+                   Name="txtPort"   
+                   Text="Port: "
+                   TextWrapping="Wrap"
+                   Grid.Row="0" Grid.Column="0" />
+        <TextBox Width="100" Margin="0,0,0,0" AcceptsReturn="True" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" Text="{Binding Port}" />
+        <Button Margin="5,0,0,0" Name="btnConnect" Content="Connect" Grid.Row="0" Grid.Column="2" 
+                Command="{Binding ConnectMetaTraderCommand}" IsEnabled="{Binding NotConnected}"></Button>
     </Grid>
 </UserControl>

@@ -15,6 +15,7 @@ namespace MewriickTrader.Client.ViewModels
 
             this.regionManager.RegisterViewWithRegion(ApplicationRegions.ContentRegion, typeof(MainPage));
             this.regionManager.RegisterViewWithRegion(ApplicationRegions.MenuRegion, typeof(Menu));
+            this.regionManager.RegisterViewWithRegion(ApplicationRegions.StatusBarRegion, typeof(StatusBar));
         }
     }
 }
