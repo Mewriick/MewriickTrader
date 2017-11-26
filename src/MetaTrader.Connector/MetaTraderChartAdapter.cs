@@ -1,8 +1,7 @@
 ﻿using MewriickTrader.Core.Candle;
-using MewriickTrader.Core.Trading;
+using MewriickTrader.Core.Trading.Charts;
 using MtApi;
 using System;
-using System.Collections.Generic;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 
@@ -10,14 +9,15 @@ namespace MetaTrader.Connector
 {
     public class MetaTraderChartAdapter : IMarketChart
     {
+        private bool disposed = false;
         private MtApiClient metaTraderProvider;
         private Subject<ICandle> lastCandeAdded;
-        private List<ICandle> candles;
+        private ICandlesCollection candles;
         private int lastCandleIndex;
 
-        public IObservable<ICandle> LastCandleAdded => lastCandeAdded.AsObservable();
+        public IObservable<ICandle> TimeBarAdded => lastCandeAdded.AsObservable();
 
-        public IList<ICandle> Candles => candles;
+        public ICandlesCollection Candles => candles;
 
         public ICandle LastCandle => candles[lastCandleIndex];
 
@@ -27,10 +27,29 @@ namespace MetaTrader.Connector
         {
             this.metaTraderProvider = metaTraderProvider ?? throw new ArgumentNullException(nameof(metaTraderProvider));
             this.lastCandeAdded = new Subject<ICandle>();
-            this.candles = new List<ICandle>();
+            this.candles = new CandleCollection();
             this.lastCandleIndex = 0;
 
             this.metaTraderProvider.OnLastTimeBar += FireOnLastTimeBar;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed) return;
+
+            if (disposing)
+            {
+                metaTraderProvider.OnLastTimeBar -= FireOnLastTimeBar;
+                lastCandeAdded.Dispose();
+            }
+
+            disposed = true;
         }
 
         private void FireOnLastTimeBar(object sender, TimeBarArgs e)
