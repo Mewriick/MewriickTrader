@@ -14,25 +14,25 @@ namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
 
         public CandlePatternMatch Match(IAnalyzableContext analyzableContext)
         {
-            if (Period > analyzableContext.Candles.Count)
+            if (Period > analyzableContext.TimeBars.Count)
             {
                 return CandlePatternMatch.NoMatch;
                 //throw new ArgumentException($"Number of candels muset be greater than {nameof(Period)}");
             }
 
-            if (analyzableContext.CandleIndexToAnalyze <= Period - 1)
+            if (analyzableContext.TimeBarIndexToAnalyze <= Period - 1)
             {
                 return CandlePatternMatch.NoMatch;
                 //throw new ArgumentException($"{nameof(analyzableContext.CandleIndexToAnalyze)} cannot be less or equal than the {nameof(Period)}");
             }
 
-            if (analyzableContext.CandleAtIndex.IsBearish())
+            if (analyzableContext.TimeBarAtIndex.IsBearish())
             {
                 return CandlePatternMatch.NoMatch;
             }
 
-            var startIndex = analyzableContext.CandleIndexToAnalyze;
-            var candles = analyzableContext.Candles;
+            var startIndex = analyzableContext.TimeBarIndexToAnalyze;
+            var candles = analyzableContext.TimeBars;
 
             for (int i = 0; i < Period; i++)
             {

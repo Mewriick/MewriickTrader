@@ -7,27 +7,27 @@ using System.Reactive.Subjects;
 
 namespace MetaTrader.Connector
 {
-    public class MetaTraderChartAdapter : IMarketChart
+    public class MetaTraderTimeBarsAdapter : IMarketTimerBars
     {
         private bool disposed = false;
         private MtApiClient metaTraderProvider;
         private Subject<ICandle> lastCandeAdded;
-        private ICandlesCollection candles;
+        private ICandlesCollection timesBarCollection;
         private int lastCandleIndex;
 
         public IObservable<ICandle> TimeBarAdded => lastCandeAdded.AsObservable();
 
-        public ICandlesCollection Candles => candles;
+        public ICandlesCollection TimeBars => timesBarCollection;
 
-        public ICandle LastCandle => candles[lastCandleIndex];
+        public ICandle ListTimeBar => timesBarCollection[lastCandleIndex];
 
         public string Symbol => throw new NotImplementedException();
 
-        public MetaTraderChartAdapter(MtApiClient metaTraderProvider)
+        public MetaTraderTimeBarsAdapter(MtApiClient metaTraderProvider)
         {
             this.metaTraderProvider = metaTraderProvider ?? throw new ArgumentNullException(nameof(metaTraderProvider));
             this.lastCandeAdded = new Subject<ICandle>();
-            this.candles = new CandleCollection();
+            this.timesBarCollection = new CandleCollection();
             this.lastCandleIndex = 0;
 
             this.metaTraderProvider.OnLastTimeBar += FireOnLastTimeBar;
@@ -60,9 +60,10 @@ namespace MetaTrader.Connector
                                 Convert.ToDecimal(timeBar.High),
                                 Convert.ToDecimal(timeBar.Low),
                                 Convert.ToDecimal(timeBar.Close),
+                                timeBar.OpenTime,
                                 timeBar.CloseTime);
 
-            candles.Add(candle);
+            timesBarCollection.Add(candle);
             lastCandleIndex++;
 
             lastCandeAdded.OnNext(candle);

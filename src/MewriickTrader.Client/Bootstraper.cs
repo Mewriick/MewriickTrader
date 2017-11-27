@@ -28,7 +28,7 @@ namespace MewriickTrader.Client
             Container.RegisterTypeForNavigation<AccountInfo>(nameof(AccountInfo));
             Container.RegisterTypeForNavigation<StatusBar>(nameof(StatusBar));
 
-            Container.RegisterType<IMarketChart, MetaTraderChartAdapter>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IMarketTimerBars, MetaTraderTimeBarsAdapter>(new ContainerControlledLifetimeManager());
             Container.RegisterType<MtApiClient>(new ContainerControlledLifetimeManager());
         }
     }

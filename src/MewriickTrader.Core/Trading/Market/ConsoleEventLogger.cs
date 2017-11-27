@@ -9,12 +9,12 @@ namespace MewriickTrader.Core.Trading.Market
         private bool disposed = false;
 
         private IMarketListener marketListener;
-        private IMarketChart marketChart;
+        private IMarketTimerBars marketChart;
 
         private IDisposable marketListenerSubscription;
         private IDisposable marketChartSubscription;
 
-        public ConsoleEventLogger(IMarketListener marketListener, IMarketChart marketChart)
+        public ConsoleEventLogger(IMarketListener marketListener, IMarketTimerBars marketChart)
         {
             this.marketListener = marketListener ?? throw new ArgumentNullException(nameof(marketListener));
             this.marketChart = marketChart ?? throw new ArgumentNullException(nameof(marketChart));

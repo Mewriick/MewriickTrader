@@ -5,10 +5,10 @@ namespace MewriickTrader.Core.Analysis
 {
     public interface IAnalyzableContext
     {
-        IReadOnlyList<ICandle> Candles { get; }
+        IReadOnlyList<ICandle> TimeBars { get; }
 
-        int CandleIndexToAnalyze { get; }
+        int TimeBarIndexToAnalyze { get; }
 
-        ICandle CandleAtIndex { get; }
+        ICandle TimeBarAtIndex { get; }
     }
 }

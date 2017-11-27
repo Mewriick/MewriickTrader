@@ -13,8 +13,6 @@ namespace MewriickTrader.Core.Candle
 
         public decimal Low { get; }
 
-        public DateTimeOffset DateTime { get; }
-
         public CandleBodyType BodyType
         {
             get
@@ -29,13 +27,18 @@ namespace MewriickTrader.Core.Candle
             }
         }
 
-        public Candle(decimal open, decimal high, decimal low, decimal close, DateTimeOffset dateTime)
+        public DateTimeOffset OpenTime { get; }
+
+        public DateTimeOffset CloseTime { get; }
+
+        public Candle(decimal open, decimal high, decimal low, decimal close, DateTimeOffset openTime, DateTimeOffset closeTime)
         {
             Open = open;
             High = high;
             Low = low;
             Close = close;
-            DateTime = dateTime;
+            OpenTime = openTime;
+            CloseTime = closeTime;
         }
 
         public override string ToString()
@@ -50,7 +53,8 @@ namespace MewriickTrader.Core.Candle
             yield return Low;
             yield return Close;
             yield return BodyType;
-            yield return DateTime;
+            yield return OpenTime;
+            yield return CloseTime;
         }
     }
 }

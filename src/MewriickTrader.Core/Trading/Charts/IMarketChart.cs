@@ -3,13 +3,13 @@ using System;
 
 namespace MewriickTrader.Core.Trading.Charts
 {
-    public interface IMarketChart : IDisposable
+    public interface IMarketTimerBars : IDisposable
     {
         IObservable<ICandle> TimeBarAdded { get; }
 
-        ICandlesCollection Candles { get; }
+        ICandlesCollection TimeBars { get; }
 
-        ICandle LastCandle { get; }
+        ICandle ListTimeBar { get; }
 
         string Symbol { get; }
     }

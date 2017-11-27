@@ -6,22 +6,22 @@ namespace MewriickTrader.Core.Analysis
 {
     public class CandlestickContext : IAnalyzableContext
     {
-        public IReadOnlyList<ICandle> Candles { get; }
+        public IReadOnlyList<ICandle> TimeBars { get; }
 
-        public int CandleIndexToAnalyze { get; }
+        public int TimeBarIndexToAnalyze { get; }
 
-        public ICandle CandleAtIndex => Candles[CandleIndexToAnalyze];
+        public ICandle TimeBarAtIndex => TimeBars[TimeBarIndexToAnalyze];
 
         public CandlestickContext(IReadOnlyList<ICandle> candles, int candleIndex)
         {
-            Candles = candles ?? throw new ArgumentNullException(nameof(candles));
+            TimeBars = candles ?? throw new ArgumentNullException(nameof(candles));
 
-            if (Candles.Count < candleIndex)
+            if (TimeBars.Count < candleIndex)
             {
-                throw new ArgumentException($"{nameof(candleIndex)} must be between 0 and {Candles.Count}");
+                throw new ArgumentException($"{nameof(candleIndex)} must be between 0 and {TimeBars.Count}");
             }
 
-            CandleIndexToAnalyze = candleIndex;
+            TimeBarIndexToAnalyze = candleIndex;
         }
     }
 }

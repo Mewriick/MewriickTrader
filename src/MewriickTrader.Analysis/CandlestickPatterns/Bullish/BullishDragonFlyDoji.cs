@@ -21,7 +21,7 @@ namespace MewriickTrader.Analysis.CandlestickPatterns.Bullish
 
         public CandlePatternMatch Match(IAnalyzableContext analyzableContext)
         {
-            var candle = analyzableContext.CandleAtIndex;
+            var candle = analyzableContext.TimeBarAtIndex;
 
             var isDoji = dojiPattern.Match(analyzableContext);
             var sizeHighToLow = candle.SizeFromHighToLow();

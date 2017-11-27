@@ -1,6 +1,8 @@
-﻿namespace MewriickTrader.Core.Candle
+﻿using System;
+
+namespace MewriickTrader.Core.Candle
 {
-    public interface ICandle : ITick
+    public interface ICandle
     {
         decimal Open { get; }
 
@@ -11,5 +13,9 @@
         decimal Low { get; }
 
         CandleBodyType BodyType { get; }
+
+        DateTimeOffset OpenTime { get; }
+
+        DateTimeOffset CloseTime { get; }
     }
 }

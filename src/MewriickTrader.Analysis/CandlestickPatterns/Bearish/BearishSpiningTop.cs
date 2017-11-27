@@ -19,7 +19,7 @@ namespace MewriickTrader.Analysis.CandlestickPatterns.SingleCandlePatterns.Beari
 
         public CandlePatternMatch Match(IAnalyzableContext analyzableContext)
         {
-            var candle = analyzableContext.CandleAtIndex;
+            var candle = analyzableContext.TimeBarAtIndex;
             if (candle.IsBullish())
             {
                 return CandlePatternMatch.NoMatch;

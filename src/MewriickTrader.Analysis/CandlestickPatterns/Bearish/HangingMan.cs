@@ -22,13 +22,13 @@ namespace MewriickTrader.Analysis.CandlestickPatterns.Bearish
 
         public CandlePatternMatch Match(IAnalyzableContext analyzableContext)
         {
-            var candle = analyzableContext.CandleAtIndex;
+            var candle = analyzableContext.TimeBarAtIndex;
             if (candle.Open == candle.Close)
             {
                 return CandlePatternMatch.NoMatch;
             }
 
-            var upTrendContext = new CandlestickContext(analyzableContext.Candles, analyzableContext.CandleIndexToAnalyze - 1);
+            var upTrendContext = new CandlestickContext(analyzableContext.TimeBars, analyzableContext.TimeBarIndexToAnalyze - 1);
             var isUptrendMatch = upTrendPatter.Match(upTrendContext);
 
             if (!isUptrendMatch.Success)
