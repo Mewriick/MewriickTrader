@@ -18,9 +18,6 @@ namespace MewriickTrader.Core.Trading.Market
         {
             this.marketListener = marketListener ?? throw new ArgumentNullException(nameof(marketListener));
             this.marketChart = marketChart ?? throw new ArgumentNullException(nameof(marketChart));
-
-            this.marketListenerSubscription = this.marketListener.TimeBarUpdated.Subscribe(OnTimeBarUpdated);
-            this.marketChartSubscription = this.marketChart.TimeBarAdded.Subscribe(OnTimeBarAdded);
         }
 
         public void OnTimeBarAdded(ICandle timeBar)
@@ -31,6 +28,12 @@ namespace MewriickTrader.Core.Trading.Market
         public void OnTimeBarUpdated(IQuote quoteUpdated)
         {
             Console.WriteLine($"LastTimeBarUpdated: {quoteUpdated}");
+        }
+
+        public void StartLogging()
+        {
+            marketListenerSubscription = marketListener.TimeBarUpdated.Subscribe(OnTimeBarUpdated);
+            marketChartSubscription = marketChart.TimeBarAdded.Subscribe(OnTimeBarAdded);
         }
 
         public void Dispose()

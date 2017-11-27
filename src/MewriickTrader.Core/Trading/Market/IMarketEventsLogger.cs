@@ -8,5 +8,7 @@ namespace MewriickTrader.Core.Trading.Market
         void OnTimeBarAdded(ICandle timeBar);
 
         void OnTimeBarUpdated(IQuote quoteUpdated);
+
+        void StartLogging();
     }
 }
