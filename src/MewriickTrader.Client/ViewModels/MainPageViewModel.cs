@@ -10,7 +10,6 @@ namespace MewriickTrader.Client.ViewModels
     public class MainPageViewModel : BindableBase
     {
         private MtApiClient metaTraderProvider;
-        private IMarketEventsLogger eventsLogger;
         private IMarketEventsLogger marketEventsLogger;
 
         private string port;

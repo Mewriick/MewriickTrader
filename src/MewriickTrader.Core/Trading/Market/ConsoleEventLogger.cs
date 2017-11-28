@@ -22,12 +22,12 @@ namespace MewriickTrader.Core.Trading.Market
 
         public void OnTimeBarAdded(ICandle timeBar)
         {
-            Console.WriteLine($"TimeBarAdded: {timeBar}");
+            Console.WriteLine($"{DateTime.Now.ToString("hh.mm.ss.ffffff")} TimeBarAdded: {timeBar}");
         }
 
         public void OnTimeBarUpdated(IQuote quoteUpdated)
         {
-            Console.WriteLine($"LastTimeBarUpdated: {quoteUpdated}");
+            Console.WriteLine($"{DateTime.Now.ToString("hh.mm.ss.ffffff")} LastTimeBarUpdated: {quoteUpdated}");
         }
 
         public void StartLogging()
