@@ -1,19 +1,24 @@
-﻿using MewriickTrader.Core.Analysis;
-using MewriickTrader.Core.Indicators;
-using System;
+﻿using MewriickTrader.Core.Indicators;
+using MtApi;
 
 namespace MetaTrader.Connector.Indicators
 {
-    public class RelativeStrengthIndex : ITechnicalIndicator<RSIIndicatorParams, decimal>
+    public class RelativeStrengthIndex : BaseTechnicalIndicator<RSIIndicatorParams, decimal>
     {
-        public RelativeStrengthIndex()
+        public RelativeStrengthIndex(MtApiClient metaTraderProvider)
+            : base(metaTraderProvider)
         {
-
         }
 
-        public decimal CalculateIndicatorValue(RSIIndicatorParams indicatorParameters)
+        protected override decimal CalculateValue(RSIIndicatorParams indicatorParameters)
         {
-            throw new NotImplementedException();
+            var rsiValue = metaTraderProvider.iRSI(indicatorParameters.Symbol,
+                                    indicatorParameters.TimeFrameType,
+                                    indicatorParameters.Period,
+                                    indicatorParameters.AppliedPriceType,
+                                    indicatorParameters.Shift);
+
+            return (decimal)rsiValue;
         }
     }
 }

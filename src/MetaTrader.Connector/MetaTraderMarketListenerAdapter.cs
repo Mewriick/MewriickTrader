@@ -18,7 +18,7 @@ namespace MetaTrader.Connector
         public MetaTraderMarketListenerAdapter(MtApiClient metaTraderProvider)
         {
             this.metaTraderProvider = metaTraderProvider ?? throw new ArgumentNullException(nameof(metaTraderProvider));
-            this.metaTraderProvider.QuoteUpdated += FireOnQuotedUpdated;
+            this.metaTraderProvider.QuoteUpdate += FireOnQuotedUpdated;
             this.quotedUpdated = new Subject<IQuote>();
         }
 
@@ -34,17 +34,22 @@ namespace MetaTrader.Connector
 
             if (disposing)
             {
-                metaTraderProvider.QuoteUpdated -= FireOnQuotedUpdated;
+                metaTraderProvider.QuoteUpdate -= FireOnQuotedUpdated;
                 quotedUpdated.Dispose();
             }
 
             disposed = true;
         }
 
-        private void FireOnQuotedUpdated(object sender, string symbol, double bid, double ask)
+        private void FireOnQuotedUpdated(object sender, MtQuoteEventArgs mtQuoteEventArgs)
         {
+            if (mtQuoteEventArgs?.Quote == null)
+            {
+                return;
+            }
+
             quotedUpdated.OnNext(
-                new Quote(symbol, Convert.ToDecimal(bid), Convert.ToDecimal(ask)));
+                new Quote(mtQuoteEventArgs.Quote.Instrument, Convert.ToDecimal(mtQuoteEventArgs.Quote.Bid), Convert.ToDecimal(mtQuoteEventArgs.Quote.Ask)));
         }
     }
 }
